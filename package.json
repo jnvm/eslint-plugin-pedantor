@@ -1,0 +1,44 @@
+{
+	"name": "eslint-plugin-pedantor"
+	,"version": "0.5.0"
+	,"description": "enforce part of speech and regex naming conventions"
+	,"keywords": [
+		"eslint"
+		,"eslintplugin"
+		,"eslint-plugin"
+		,"plugin"
+		,"part of speech"
+		,"pos"
+		,"nlp"
+		,"compromise"
+		,"english"
+		,"speech"
+		,"style"
+		,"naming"
+		,"convention"
+		,"styleguide"
+		,"rules"
+	]
+	,"author": "jnvm"
+	,"main": "lib/index.js"
+	,"scripts": {
+		"test": "mocha tests --recursive"
+	}
+	,"dependencies": {
+		"compromise": "^10.7.2"
+		,"lodash": "^4.17.4"
+		,"requireindex": "~1.1.0"
+	}
+	,"devDependencies": {
+		"eslint": "~3.9.1"
+		,"mocha": "^3.1.2"
+	}
+	,"repository": {
+		"type": "git"
+		,"url": "https://github.com/jnvm/eslint-plugin-pedantor"
+	}
+	"engines": {
+		"node": ">=5.0.0"
+	}
+	,"license": "MIT"
+}
