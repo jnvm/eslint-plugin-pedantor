@@ -1,6 +1,6 @@
 {
 	"name": "eslint-plugin-pedantor"
-	,"version": "0.5.3"
+	,"version": "0.5.4"
 	,"description": "enforce part of speech and regex naming conventions"
 	,"keywords": [
 		"eslint"
