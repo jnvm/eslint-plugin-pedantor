@@ -45,11 +45,12 @@ Then configure the rule.  Currently only `fxn-name-convention` is supported, det
 	"rules": {
 		"pedantor/fxn-name-convention": [1, {
 			allow: ['^#Verb' /*,...*/ ]
-			,disallow: [/mapper|reducer|controller/i /*,...*/ ]
-			,assume: new Map([
-				[/tweet/i, 'Verb']
+			,disallow: ["/mapper|reducer|controller/i" /*,...*/ ]
+			,assume: {
+				"tweet":'Verb'
+				,"/XHR/i":'Verb'
 				//,...
-			])
+			}
 		}]
 	}
 }
@@ -57,8 +58,8 @@ Then configure the rule.  Currently only `fxn-name-convention` is supported, det
 ```
 Each value in `allow`, `disallow` can be:
 * a [match syntax](https://github.com/nlp-compromise/compromise/wiki/Match-syntax) string used by the natural language processing [`compromise`](http://compromise.cool/) module
-* or a plain [`/regex/`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+* or a string-coerced, plain [`/regex/`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp).  So /foo/i +'' == "/foo/i".  This enables regular json use.
 
 **Note**: matching is attempted against the [`_.lowerCase()d`](https://lodash.com/docs/#lowerCase) version of the function name.  So `doThing()` becomes `do thing`.
 
-Given the nlp module is not perfect, or you might want to add your own conventions, you can assign a `new Map()` to `assume` and point some strings or regex to parts of speech.  For example: maybe `XHR` should be a `Verb`.
+Given the nlp module is not perfect, or you might want to add your own conventions, you can assign an `{}` to `assume` and point some strings or (string-coerced) regex to parts of speech.  In the example above, `XHR` and `xhr` should be considered a `Verb`.
